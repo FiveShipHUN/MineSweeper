@@ -2,4 +2,7 @@
   "Title": "MineSweeper",
   "Settings": "Settings",
   "Mines": "Mines: {0} / {1}",
+  "Win": "Win!",
+  "Lose": "Lose",
+  "LoseL": "Sorry, you lost the game!"
 }

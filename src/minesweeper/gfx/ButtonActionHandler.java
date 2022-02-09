@@ -35,7 +35,7 @@ public class ButtonActionHandler implements MouseListener {
                         btn.setIcon(MineSweeper.icons[3]);
                     }
                 });
-                JOptionPane.showMessageDialog(null, "Hát ez robbant gec.", "Baj van gec", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, MineSweeper.string("LostL"), MineSweeper.string("Lost"), JOptionPane.WARNING_MESSAGE);
                 MineSweeper.start();
             } else if (!revealed) {
                 // btn.setText(isMine ? "Mine" : "Safe");
@@ -60,7 +60,7 @@ public class ButtonActionHandler implements MouseListener {
                 }
                 game.revealed++;
                 if (game.revealed + game.numberOfMines() == game.size() * game.size()) {
-                    JOptionPane.showMessageDialog(null, "GG, kurva ügyes vagy, nem is értem miért nem mész el tűzszerésznek az FBI-hoz.");
+                    JOptionPane.showMessageDialog(null, MineSweeper.string("Win"));
                     MineSweeper.start();
                 }
             }
