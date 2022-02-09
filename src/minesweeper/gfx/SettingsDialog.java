@@ -14,7 +14,7 @@ public class SettingsDialog {
 
     public static void settings() {
         var sd = new SettingsDialog();
-        JFrame frame = new JFrame("Settings");
+        JFrame frame = new JFrame(MineSweeper.string("Settings"));
         frame.setIconImage(MineSweeper.icon);
         frame.setContentPane(sd.panel);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -30,8 +30,6 @@ public class SettingsDialog {
             MineSweeper.size = Integer.parseInt(sd.size.getText());
             MineSweeper.start();
         });
-        sd.cancelButton.addActionListener((e) -> {
-            frame.dispose();
-        });
+        sd.cancelButton.addActionListener((e) -> frame.dispose());
     }
 }

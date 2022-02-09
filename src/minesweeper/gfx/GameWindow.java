@@ -46,9 +46,7 @@ public class GameWindow {
         btns[x][y] = button;
         //panels[x][y] = container;
         // button.setText(String.format("%d, %d", x, y));
-        button.addActionListener((ActionEvent e) -> {
-            generateMines(x, y);
-        });
+        button.addActionListener((ActionEvent e) -> generateMines(x, y));
         //button.setText("");
     }
 
@@ -151,7 +149,7 @@ public class GameWindow {
     }
 
     public static GameWindow create(int size, int mines, long seed) {
-        var frame = new JFrame("Aknakereső");
+        var frame = new JFrame(MineSweeper.stringOr("Title","MineSweeper"));
 
         var w = new GameWindow();
         //frame.setUndecorated(true);

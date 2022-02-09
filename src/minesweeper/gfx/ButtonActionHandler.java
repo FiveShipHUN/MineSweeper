@@ -78,7 +78,7 @@ public class ButtonActionHandler implements MouseListener {
             }
             state = state % 3;
             btn.setText("");
-            game.mineFlagsPlaced.setText(String.format("Aknák: %d / %d", game.flagsPlaced, game.numberOfMines()));
+            game.mineFlagsPlaced.setText(MineSweeper.stringOr("Mines", "Mines: {0} / {1}", game.flagsPlaced, game.numberOfMines()));
             btn.setIcon(MineSweeper.icons[state]);
         }
     }

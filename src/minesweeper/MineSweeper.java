@@ -1,5 +1,6 @@
 package minesweeper;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.formdev.flatlaf.FlatDarculaLaf;
@@ -25,6 +26,35 @@ public class MineSweeper {
 
     public static BufferedImage icon;
 
+    // Settings
+    public static int size = 10;
+    public static int mines = 8;
+    public static long seed = -1;
+
+    public static void main(String[] args) {
+        initJSON();
+        loadLang();
+        cfg = Config.loadOrNew();
+        try {
+            UIManager.setLookAndFeel(new FlatDarculaLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize LaF");
+        }
+        try {
+            icons[0] = null;
+            icons[1] = new ImageIcon(ImageIO.read(Objects.requireNonNull(MineSweeper.class.getResourceAsStream("/minesweeper/assets/textures/mine_mark.png"))));
+            icons[2] = new ImageIcon(ImageIO.read(Objects.requireNonNull(MineSweeper.class.getResourceAsStream("/minesweeper/assets/textures/mine_not_sure.png"))));
+            icons[3] = new ImageIcon(icon = ImageIO.read(Objects.requireNonNull(MineSweeper.class.getResourceAsStream("/minesweeper/assets/textures/mine.png"))));
+            // UIManager.setLookAndFeel( new FlatLightLaf() );
+        } catch (Exception e) {
+            System.err.println("Can't load assets. Exiting...");
+            e.printStackTrace();
+            System.exit(0);
+            return;
+        }
+        start();
+    }
+
     public static GameWindow game() {
         return game;
     }
@@ -48,32 +78,15 @@ public class MineSweeper {
         return s;
     }
 
-    public static void main(String[] args) {
-        initJSON();
-        cfg = Config.loadOrNew();
+    public static void loadLang() {
         try {
-            UIManager.setLookAndFeel(new FlatDarculaLaf());
-        } catch (Exception ex) {
-            System.err.println("Failed to initialize LaF");
-        }
-        try {
-            icons[0] = null;
-            icons[1] = new ImageIcon(ImageIO.read(Objects.requireNonNull(MineSweeper.class.getResourceAsStream("/minesweeper/assets/textures/mine_mark.png"))));
-            icons[2] = new ImageIcon(ImageIO.read(Objects.requireNonNull(MineSweeper.class.getResourceAsStream("/minesweeper/assets/textures/mine_not_sure.png"))));
-            icons[3] = new ImageIcon(icon = ImageIO.read(Objects.requireNonNull(MineSweeper.class.getResourceAsStream("/minesweeper/assets/textures/mine.png"))));
-            // UIManager.setLookAndFeel( new FlatLightLaf() );
+            lang = JSON.readValue(MineSweeper.class.getResourceAsStream("/assets/lang/" + cfg.lang + ".json"), new TypeReference<HashMap<String, String>>() {
+            });
         } catch (Exception e) {
-            System.err.println("Can't load assets. Exiting...");
-            e.printStackTrace();
-            System.exit(0);
-            return;
+            lang = new HashMap<>();
         }
-        start();
     }
 
-    public static int size = 10;
-    public static int mines = 8;
-    public static long seed = -1;
 
     public static void start() {
         start(size, mines);
