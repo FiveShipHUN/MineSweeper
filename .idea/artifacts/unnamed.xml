@@ -10,6 +10,9 @@
           <element id="module-output" name="Minesweeper" />
         </element>
         <element id="library" level="project" name="formdev.flatlaf" />
+        <element id="library" level="project" name="fasterxml.jackson.core" />
+        <element id="library" level="project" name="fasterxml.jackson.core.annotations" />
+        <element id="library" level="project" name="fasterxml.jackson.core.databind" />
       </element>
     </root>
   </artifact>
