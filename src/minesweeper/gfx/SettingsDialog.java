@@ -62,6 +62,7 @@ public class SettingsDialog {
         sd.langCB.addActionListener((e) -> {
             MineSweeper.cfg.lang = sd.langCB.getSelectedIndex() == 0 ? "english" : "hungarian";
             MineSweeper.cfg.save();
+            MineSweeper.loadLang();
         });
     }
 }

@@ -43,9 +43,9 @@ public class MineSweeper {
         }
         try {
             icons[0] = null;
-            icons[1] = new ImageIcon(ImageIO.read(Objects.requireNonNull(MineSweeper.class.getResourceAsStream("/minesweeper/assets/textures/mine_mark.png"))));
-            icons[2] = new ImageIcon(ImageIO.read(Objects.requireNonNull(MineSweeper.class.getResourceAsStream("/minesweeper/assets/textures/mine_not_sure.png"))));
-            icons[3] = new ImageIcon(icon = ImageIO.read(Objects.requireNonNull(MineSweeper.class.getResourceAsStream("/minesweeper/assets/textures/mine.png"))));
+            icons[1] = new ImageIcon(ImageIO.read(Objects.requireNonNull(MineSweeper.class.getResourceAsStream("/assets/textures/mine_mark.png"))));
+            icons[2] = new ImageIcon(ImageIO.read(Objects.requireNonNull(MineSweeper.class.getResourceAsStream("/assets/textures/mine_not_sure.png"))));
+            icons[3] = new ImageIcon(icon = ImageIO.read(Objects.requireNonNull(MineSweeper.class.getResourceAsStream("/assets/textures/mine.png"))));
             // UIManager.setLookAndFeel( new FlatLightLaf() );
         } catch (Exception e) {
             System.err.println("Can't load assets. Exiting...");
