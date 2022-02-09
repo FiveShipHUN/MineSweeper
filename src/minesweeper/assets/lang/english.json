@@ -4,5 +4,11 @@
   "Mines": "Mines: {0} / {1}",
   "Win": "Win!",
   "Lose": "Lose",
-  "LoseL": "Sorry, you lost the game!"
+  "LoseL": "Sorry, you lost the game!",
+  "Restart": "Restart",
+  "SeedL": "Seed",
+  "SizeL": "Size",
+  "MinesL": "Mines",
+  "Cancel": "Cancel",
+  "Lang": "Language"
 }

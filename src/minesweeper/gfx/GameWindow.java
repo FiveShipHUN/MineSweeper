@@ -149,7 +149,7 @@ public class GameWindow {
     }
 
     public static GameWindow create(int size, int mines, long seed) {
-        var frame = new JFrame(MineSweeper.stringOr("Title","MineSweeper"));
+        var frame = new JFrame(MineSweeper.stringOr("Title", "MineSweeper"));
 
         var w = new GameWindow();
         //frame.setUndecorated(true);
@@ -189,10 +189,15 @@ public class GameWindow {
         frame.setContentPane(w.panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
-       // frame.setBounds(0, 0, 800, 600);
+        // frame.setBounds(0, 0, 800, 600);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setVisible(true);
         frame.setIconImage(MineSweeper.icon);
+
+        // Init localized text
+        w.restartButton.setText(MineSweeper.string("Restart"));
+        w.settingsBtn.setText(MineSweeper.string("Settings"));
+        w.mineFlagsPlaced.setText(MineSweeper.stringOr("Mines", "Mines: {0} / {1}", w.flagsPlaced, w.numberOfMines()));
 
 
         return w;

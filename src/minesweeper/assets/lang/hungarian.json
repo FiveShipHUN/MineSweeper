@@ -3,6 +3,12 @@
   "Settings": "Beállítások",
   "Mines": "Aknák: {0} / {1}",
   "Win": "Győzelem!",
-  "Lose": "Vereség",
-  "LoseL": "Sajnos elvesztetted a játékot!"
+  "Lose": "Vesztettél!",
+  "LoseL": "Sajnos elveszítetted a játékot!",
+  "Restart": "Újraindítás",
+  "SeedL": "Seed",
+  "SizeL": "Méret",
+  "MinesL": "Aknák",
+  "Cancel": "Mégse",
+  "Lang": "Nyelv"
 }

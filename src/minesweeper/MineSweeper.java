@@ -33,8 +33,9 @@ public class MineSweeper {
 
     public static void main(String[] args) {
         initJSON();
-        loadLang();
         cfg = Config.loadOrNew();
+        cfg.save();
+        loadLang();
         try {
             UIManager.setLookAndFeel(new FlatDarculaLaf());
         } catch (Exception ex) {
@@ -83,6 +84,7 @@ public class MineSweeper {
             lang = JSON.readValue(MineSweeper.class.getResourceAsStream("/assets/lang/" + cfg.lang + ".json"), new TypeReference<HashMap<String, String>>() {
             });
         } catch (Exception e) {
+            e.printStackTrace();
             lang = new HashMap<>();
         }
     }
