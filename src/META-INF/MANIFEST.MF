@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: minesweeper.MineSweeper
+Class-Path: MineSweeper.jar flatlaf-1.6.jar
